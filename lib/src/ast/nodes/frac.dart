@@ -125,8 +125,8 @@ class FracLayoutDelegate extends IntrinsicLayoutDelegate<_FracPos> {
     required Map<_FracPos, double> childrenWidths,
     bool isComputingIntrinsics = false,
   }) {
-    final numerSize = childrenWidths[_FracPos.numer]!;
-    final denomSize = childrenWidths[_FracPos.denom]!;
+    final numerSize = childrenWidths[_FracPos.numer]?? 0.0;
+    final denomSize = childrenWidths[_FracPos.denom] ?? 0.0;
     final barLength = math.max(numerSize, denomSize);
     // KaTeX/src/katex.less
     final nullDelimiterWidth = 0.12.cssEm.toLpUnder(options);
@@ -151,10 +151,10 @@ class FracLayoutDelegate extends IntrinsicLayoutDelegate<_FracPos> {
     required Map<_FracPos, double> childrenBaselines,
     bool isComputingIntrinsics = false,
   }) {
-    final numerSize = childrenHeights[_FracPos.numer]!;
-    final denomSize = childrenHeights[_FracPos.denom]!;
-    final numerHeight = childrenBaselines[_FracPos.numer]!;
-    final denomHeight = childrenBaselines[_FracPos.denom]!;
+    final numerSize = childrenHeights[_FracPos.numer]?? 0.0;
+    final denomSize = childrenHeights[_FracPos.denom]?? 0.0;
+    final numerHeight = childrenBaselines[_FracPos.numer] ?? 0.0;
+    final denomHeight = childrenBaselines[_FracPos.denom] ?? 0.0;
     final metrics = options.fontMetrics;
     final xi8 = metrics.defaultRuleThickness.cssEm.toLpUnder(options);
     final theta = barSize?.toLpUnder(options) ?? xi8;

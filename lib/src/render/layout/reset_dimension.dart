@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
@@ -142,9 +144,9 @@ class RenderResetDimension extends RenderShiftedBox {
     final childDepth = childSize.height - childHeight;
     final childWidth = childSize.width;
 
-    final height = layoutHeight ?? childHeight;
+    final height = max(layoutHeight ?? childHeight, constraints.minHeight);
     final depth = layoutDepth ?? childDepth;
-    final width = layoutWidth ?? childWidth;
+    final width = max(layoutWidth ?? childWidth, constraints.minWidth);
 
     var dx = 0.0;
     switch (horizontalAlignment) {

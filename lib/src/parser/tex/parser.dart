@@ -418,9 +418,16 @@ class TexParser {
     if (greediness != null &&
         // funcData.greediness != null &&
         funcData.greediness <= greediness) {
-      throw ParseException(
-          '''Got function '$func' with no arguments ${name != null ? ' as $name' : ''}''',
-          token);
+
+      /// TODO: yeamin
+      /// Omitting this exception for false positive case, when rendering this
+      /// valid equation `\operatorname{cosec}\left(-2580^{\circ}\right)`.
+      /// 
+      /// Need to figure out root cause and proper solution for this.
+      /// 
+      // throw ParseException(
+      //     '''Got function '$func' with no arguments ${name != null ? ' as $name' : ''}''',
+      //     token);
     } else if (this.mode == Mode.text && !funcData.allowedInText) {
       throw ParseException(
           '''Can't use function '$func' in text mode''', token);

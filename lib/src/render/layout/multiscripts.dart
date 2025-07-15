@@ -133,7 +133,7 @@ class MultiscriptsLayoutDelegate extends IntrinsicLayoutDelegate<_ScriptPos> {
     required Map<_ScriptPos, double> childrenWidths,
     bool isComputingIntrinsics = false,
   }) {
-    final baseSize = childrenWidths[_ScriptPos.base]!;
+    final baseSize = childrenWidths[_ScriptPos.base]?? 0.0;
     final subSize = childrenWidths[_ScriptPos.sub];
     final supSize = childrenWidths[_ScriptPos.sup];
     final presubSize = childrenWidths[_ScriptPos.presub];
@@ -175,13 +175,13 @@ class MultiscriptsLayoutDelegate extends IntrinsicLayoutDelegate<_ScriptPos> {
     required Map<_ScriptPos, double> childrenBaselines,
     bool isComputingIntrinsics = false,
   }) {
-    final baseSize = childrenHeights[_ScriptPos.base]!;
+    final baseSize = childrenHeights[_ScriptPos.base] ?? 0.0;
     final subSize = childrenHeights[_ScriptPos.sub];
     final supSize = childrenHeights[_ScriptPos.sup];
     final presubSize = childrenHeights[_ScriptPos.presub];
     final presupSize = childrenHeights[_ScriptPos.presup];
 
-    final baseHeight = childrenBaselines[_ScriptPos.base]!;
+    final baseHeight = childrenBaselines[_ScriptPos.base] ?? 0.0;
     final subHeight = childrenBaselines[_ScriptPos.sub];
     final supHeight = childrenBaselines[_ScriptPos.sup];
     final presubHeight = childrenBaselines[_ScriptPos.presub];
